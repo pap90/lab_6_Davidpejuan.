@@ -13,21 +13,21 @@ import java.util.Scanner;
  *
  * @author david
  */
-public class administrarpelis {
+public class administrarseries {
 
-    private ArrayList<peliculas> listapeliculas = new ArrayList();
+    private ArrayList<series> listaseries = new ArrayList();
     private File archivo = null;
 
-    public administrarpelis(String path) {
+    public administrarseries(String path) {
         archivo = new File(path);
     }
 
-    public ArrayList<peliculas> getListapeliculas() {
-        return listapeliculas;
+    public ArrayList<series> getListaseries() {
+        return listaseries;
     }
 
-    public void setListapeliculas(ArrayList<peliculas> listapeliculas) {
-        this.listapeliculas = listapeliculas;
+    public void setListaseries(ArrayList<series> listaseries) {
+        this.listaseries = listaseries;
     }
 
     public File getArchivo() {
@@ -40,7 +40,7 @@ public class administrarpelis {
 
     public void cargarArchivo() {
         Scanner sc = null;
-        listapeliculas = new ArrayList();
+        listaseries = new ArrayList();
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
@@ -51,34 +51,26 @@ public class administrarpelis {
                     int duracion;
                     String categoria;
                     ArrayList<String> temp = new ArrayList();
-                    String director;
-                    String compañia;
+                    int temporadas;
+                    String productora;
                     String idioma;
                     String doblaje;
                     String subtitulos;
                     nombre = sc.next();
-
                     duracion = sc.nextInt();
-
                     categoria = sc.next();
-
                     Scanner s2 = new Scanner(sc.next());
                     s2.useDelimiter(",");
                     while (s2.hasNext()) {
                         temp.add(s2.next());
                     }
-                    director = sc.next();
-
-                    compañia = sc.next();
-
+                    temporadas=sc.nextInt();
+                    productora = sc.next();
                     idioma = sc.next();
-
                     doblaje = sc.next();
-
                     subtitulos = sc.next();
-
-                    listapeliculas.add(new peliculas(nombre, duracion, categoria, director, compañia, idioma, doblaje, subtitulos));
-                    listapeliculas.get(listapeliculas.size() - 1).setActores(temp);
+                    listaseries.add(new series(nombre, duracion, categoria, temporadas, productora, idioma, doblaje, subtitulos));
+                    listaseries.get(listaseries.size() - 1).setActores(temp);
 
                 }
                 
@@ -89,5 +81,4 @@ public class administrarpelis {
             }
         }//fin if
     }
-
 }

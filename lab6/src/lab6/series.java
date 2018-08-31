@@ -11,23 +11,26 @@ import java.util.ArrayList;
  *
  * @author david
  */
-public class peliculas {
+public class series {
     private String nombre;
     private int duracion;
     private String categoria;
-    private ArrayList<String> actores=new ArrayList();
-    private String director;
-    private String compañia;
+    private ArrayList <String> actores=new ArrayList();
+    private int temporadas;
+    private String productora;
     private String idioma;
     private String doblaje;
     private String subtitulos;
 
-    public peliculas(String nombre, int duracion, String categoria, String director, String compañia, String idioma, String doblaje, String subtitulos) {
+    public series() {
+    }
+
+    public series(String nombre, int duracion, String categoria, int temporadas, String productora, String idioma, String doblaje, String subtitulos) {
         this.nombre = nombre;
         this.duracion = duracion;
         this.categoria = categoria;
-        this.director = director;
-        this.compañia = compañia;
+        this.temporadas = temporadas;
+        this.productora = productora;
         this.idioma = idioma;
         this.doblaje = doblaje;
         this.subtitulos = subtitulos;
@@ -65,20 +68,20 @@ public class peliculas {
         this.actores = actores;
     }
 
-    public String getDirector() {
-        return director;
+    public int getTemporadas() {
+        return temporadas;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
+    public void setTemporadas(int temporadas) {
+        this.temporadas = temporadas;
     }
 
-    public String getCompañia() {
-        return compañia;
+    public String getProductora() {
+        return productora;
     }
 
-    public void setCompañia(String compañia) {
-        this.compañia = compañia;
+    public void setProductora(String productora) {
+        this.productora = productora;
     }
 
     public String getIdioma() {
@@ -109,8 +112,5 @@ public class peliculas {
     public String toString() {
         return nombre;
     }
-    
-    
-    
     
 }
